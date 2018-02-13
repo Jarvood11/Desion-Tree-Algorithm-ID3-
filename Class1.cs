@@ -2,12 +2,12 @@ using System;
 using System.Collections;
 using System.Data;
 
-//AUTHOR: Roosevelt dos Santos J˙nior
+
 
 namespace ExemploID3
 {
 	/// <summary>
-	/// Classe que representa um atributo utilizado na classe de decis„o
+	/// Classe que representa um atributo utilizado na classe de decis√£o
 	/// </summary>
 	public class Attribute
 	{
@@ -16,10 +16,10 @@ namespace ExemploID3
 		object mLabel;
 
 		/// <summary>
-		/// Inicializa uma nova inst‚ncia de uma classe Atribute
+		/// Inicializa uma nova inst√¢ncia de uma classe Atribute
 		/// </summary>
 		/// <param name="name">Indica o nome do atributo</param>
-		/// <param name="values">Indica os valores possÌveis para o atributo</param>
+		/// <param name="values">Indica os valores poss√≠veis para o atributo</param>
 		public Attribute(string name, string[] values)
 		{
 			mName = name;
@@ -60,7 +60,7 @@ namespace ExemploID3
 		}
 
 		/// <summary>
-		/// Indica se um valor È permitido para este atributo
+		/// Indica se um valor √© permitido para este atributo
 		/// </summary>
 		/// <param name="value"></param>
 		/// <returns></returns>
@@ -70,10 +70,10 @@ namespace ExemploID3
 		}
 
 		/// <summary>
-		/// Retorna o Ìndice de um valor
+		/// Retorna o √≠ndice de um valor
 		/// </summary>
 		/// <param name="value">Valor a ser retornado</param>
-		/// <returns>O valor do Ìndice na qual a posiÁ„o do valor se encontra</returns>
+		/// <returns>O valor do √≠ndice na qual a posi√ß√£o do valor se encontra</returns>
 		public int indexValue(string value)
 		{
 			if (mValues != null)
@@ -100,7 +100,7 @@ namespace ExemploID3
 	}
 
 	/// <summary>
-	/// Classe que representar· a arvore de decis„o montada;
+	/// Classe que representar√° a arvore de decis√£o montada;
 	/// </summary>
 	public class TreeNode
 	{
@@ -108,9 +108,9 @@ namespace ExemploID3
 		private Attribute mAttribute;
 
 		/// <summary>
-		/// Inicializa uma nova inst‚ncia de TreeNode
+		/// Inicializa uma nova inst√¢ncia de TreeNode
 		/// </summary>
-		/// <param name="attribute">Atributo ao qual o node est· ligado</param>
+		/// <param name="attribute">Atributo ao qual o node est√° ligado</param>
 		public TreeNode(Attribute attribute)
 		{
 			if (attribute.values != null)
@@ -131,7 +131,7 @@ namespace ExemploID3
 		/// Adiciona um TreeNode filho a este treenode no galho de nome indicicado pelo ValueName
 		/// </summary>
 		/// <param name="treeNode">TreeNode filho a ser adicionado</param>
-		/// <param name="ValueName">Nome do galho onde o treeNode È criado</param>
+		/// <param name="ValueName">Nome do galho onde o treeNode √© criado</param>
 		public void AddTreeNode(TreeNode treeNode, string ValueName)
 		{
 			int index = mAttribute.indexValue(ValueName);
@@ -139,7 +139,7 @@ namespace ExemploID3
 		}
 
 		/// <summary>
-		/// Retorna o nro total de filhos do nÛ
+		/// Retorna o nro total de filhos do n√≥
 		/// </summary>
 		public int totalChilds
 		{
@@ -150,17 +150,17 @@ namespace ExemploID3
 		}
 
 		/// <summary>
-		/// Retorna o nÛ filho de um nÛ
+		/// Retorna o n√≥ filho de um n√≥
 		/// </summary>
-		/// <param name="index">Indice do nÛ filho</param>
-		/// <returns>Um objeto da classe TreeNode representando o nÛ</returns>
+		/// <param name="index">Indice do n√≥ filho</param>
+		/// <returns>Um objeto da classe TreeNode representando o n√≥</returns>
 		public TreeNode getChild(int index)
 		{
 			return (TreeNode)mChilds[index];
 		}
 
 		/// <summary>
-		/// Atributo que est· conectado ao NÛ
+		/// Atributo que est√° conectado ao N√≥
 		/// </summary>
 		public Attribute attribute
 		{
@@ -171,10 +171,10 @@ namespace ExemploID3
 		}
 
 		/// <summary>
-		/// Retorna o filho de um nÛ pelo nome do galho que leva atÈ ele
+		/// Retorna o filho de um n√≥ pelo nome do galho que leva at√© ele
 		/// </summary>
 		/// <param name="branchName">Nome do galho</param>
-		/// <returns>O nÛ</returns>
+		/// <returns>O n√≥</returns>
 		public TreeNode getChildByBranchName(string branchName)
 		{
 			int index = mAttribute.indexValue(branchName);
@@ -183,7 +183,7 @@ namespace ExemploID3
 	}
 	
 	/// <summary>
-	/// Classe que implementa uma ·rvore de Decis„o usando o algoritmo ID3
+	/// Classe que implementa uma √°rvore de Decis√£o usando o algoritmo ID3
 	/// </summary>
 	public class DecisionTreeID3
 	{
@@ -212,11 +212,11 @@ namespace ExemploID3
 		}
 
 		/// <summary>
-		/// Calcula a entropia dada a seguinte fÛrmula
+		/// Calcula a entropia dada a seguinte f√≥rmula
 		/// -p+log2p+ - p-log2p-
 		/// 
-		/// onde: p+ È a proporÁ„o de valores positivos
-		///		  p- È a proporÁ„o de valores negativos
+		/// onde: p+ √© a propor√ß√£o de valores positivos
+		///		  p- √© a propor√ß√£o de valores negativos
 		/// </summary>
 		/// <param name="positives">Quantidade de valores positivos</param>
 		/// <param name="negatives">Quantidade de valores negativos</param>
@@ -238,13 +238,13 @@ namespace ExemploID3
 		}
 
 		/// <summary>
-		/// Varre tabela de amostras verificando um atributo e se o resultado È positivo ou negativo
+		/// Varre tabela de amostras verificando um atributo e se o resultado √© positivo ou negativo
 		/// </summary>
 		/// <param name="samples">DataTable com as amostras</param>
 		/// <param name="attribute">Atributo a ser pesquisado</param>
 		/// <param name="value">valor permitido para o atributo</param>
-		/// <param name="positives">Conter· o nro de todos os atributos com o valor determinado com resultado positivo</param>
-		/// <param name="negatives">Conter· o nro de todos os atributos com o valor determinado com resultado negativo</param>
+		/// <param name="positives">Conter√° o nro de todos os atributos com o valor determinado com resultado positivo</param>
+		/// <param name="negatives">Conter√° o nro de todos os atributos com o valor determinado com resultado negativo</param>
 		private void getValuesToAttribute(DataTable samples, Attribute attribute, string value, out int positives, out int negatives)
 		{
 			positives = 0;
@@ -307,11 +307,11 @@ namespace ExemploID3
 		}
 
 		/// <summary>
-		/// Retorna true caso todos os exemplos da amostragem s„o positivos
+		/// Retorna true caso todos os exemplos da amostragem s√£o positivos
 		/// </summary>
 		/// <param name="samples">DataTable com as amostras</param>
-		/// <param name="targetAttribute">Atributo (coluna) da tabela a qual ser· verificado</param>
-		/// <returns>True caso todos os exemplos da amostragem s„o positivos</returns>
+		/// <param name="targetAttribute">Atributo (coluna) da tabela a qual ser√° verificado</param>
+		/// <returns>True caso todos os exemplos da amostragem s√£o positivos</returns>
 		private bool allSamplesPositives(DataTable samples, string targetAttribute)
 		{			
 			foreach (DataRow row in samples.Rows)
@@ -324,11 +324,11 @@ namespace ExemploID3
 		}
 
 		/// <summary>
-		/// Retorna true caso todos os exemplos da amostragem s„o negativos
+		/// Retorna true caso todos os exemplos da amostragem s√£o negativos
 		/// </summary>
 		/// <param name="samples">DataTable com as amostras</param>
-		/// <param name="targetAttribute">Atributo (coluna) da tabela a qual ser· verificado</param>
-		/// <returns>True caso todos os exemplos da amostragem s„o negativos</returns>
+		/// <param name="targetAttribute">Atributo (coluna) da tabela a qual ser√° verificado</param>
+		/// <returns>True caso todos os exemplos da amostragem s√£o negativos</returns>
 		private bool allSamplesNegatives(DataTable samples, string targetAttribute)
 		{
 			foreach (DataRow row in samples.Rows)
@@ -344,7 +344,7 @@ namespace ExemploID3
         /// Retorna uma lista com todos os valores distintos de uma tabela de amostragem
         /// </summary>
         /// <param name="samples">DataTable com as amostras</param>
-        /// <param name="targetAttribute">Atributo (coluna) da tabela a qual ser· verificado</param>
+        /// <param name="targetAttribute">Atributo (coluna) da tabela a qual ser√° verificado</param>
         /// <returns>Um ArrayList com os valores distintos</returns>
 		private ArrayList getDistinctValues(DataTable samples, string targetAttribute)
 		{
@@ -363,8 +363,8 @@ namespace ExemploID3
 		/// Retorna o valor mais comum dentro de uma amostragem
 		/// </summary>
 		/// <param name="samples">DataTable com as amostras</param>
-		/// <param name="targetAttribute">Atributo (coluna) da tabela a qual ser· verificado</param>
-		/// <returns>Retorna o objeto com maior incidÍncia dentro da tabela de amostras</returns>
+		/// <param name="targetAttribute">Atributo (coluna) da tabela a qual ser√° verificado</param>
+		/// <returns>Retorna o objeto com maior incid√™ncia dentro da tabela de amostras</returns>
 		private object getMostCommonValue(DataTable samples, string targetAttribute)
 		{
 			ArrayList distinctValues = getDistinctValues(samples, targetAttribute);
@@ -392,12 +392,12 @@ namespace ExemploID3
 		}
 
 		/// <summary>
-		/// Monta uma ·rvore de decis„o baseado nas amostragens apresentadas
+		/// Monta uma √°rvore de decis√£o baseado nas amostragens apresentadas
 		/// </summary>
-		/// <param name="samples">Tabela com as amostragens que ser„o apresentadas para a montagem da ·rvore</param>
+		/// <param name="samples">Tabela com as amostragens que ser√£o apresentadas para a montagem da √°rvore</param>
 		/// <param name="targetAttribute">Nome da coluna da tabela que possue o valor true ou false para 
-		/// validar ou n„o uma amostragem</param>
-		/// <returns>A raiz da ·rvore de decis„o montada</returns></returns?>
+		/// validar ou n√£o uma amostragem</param>
+		/// <returns>A raiz da √°rvore de decis√£o montada</returns></returns?>
 		private TreeNode internalMountTree(DataTable samples, string targetAttribute, Attribute[] attributes)
 		{
 			if (allSamplesPositives(samples, targetAttribute) == true)
@@ -434,14 +434,14 @@ namespace ExemploID3
 				}				
 				// Seleciona todas os elementos com o valor deste atributo				
 
-				// Cria uma nova lista de atributos menos o atributo corrente que È o melhor atributo				
+				// Cria uma nova lista de atributos menos o atributo corrente que √© o melhor atributo				
 				ArrayList aAttributes = new ArrayList(attributes.Length - 1);
 				for(int i = 0; i < attributes.Length; i++)
 				{
 					if (attributes[i].AttributeName != bestAttribute.AttributeName)
 						aAttributes.Add(attributes[i]);
 				}
-				// Cria uma nova lista de atributos menos o atributo corrente que È o melhor atributo
+				// Cria uma nova lista de atributos menos o atributo corrente que √© o melhor atributo
 
 				if (aSample.Rows.Count == 0)
 				{
@@ -460,12 +460,12 @@ namespace ExemploID3
 
 
 		/// <summary>
-		/// Monta uma ·rvore de decis„o baseado nas amostragens apresentadas
+		/// Monta uma √°rvore de decis√£o baseado nas amostragens apresentadas
 		/// </summary>
-		/// <param name="samples">Tabela com as amostragens que ser„o apresentadas para a montagem da ·rvore</param>
+		/// <param name="samples">Tabela com as amostragens que ser√£o apresentadas para a montagem da √°rvore</param>
 		/// <param name="targetAttribute">Nome da coluna da tabela que possue o valor true ou false para 
-		/// validar ou n„o uma amostragem</param>
-		/// <returns>A raiz da ·rvore de decis„o montada</returns></returns?>
+		/// validar ou n√£o uma amostragem</param>
+		/// <returns>A raiz da √°rvore de decis√£o montada</returns></returns?>
 		public TreeNode mountTree(DataTable samples, string targetAttribute, Attribute[] attributes)
 		{
 			mSamples = samples;
@@ -474,7 +474,7 @@ namespace ExemploID3
 	}
 
 	/// <summary>
-	/// Classe que exemplifica a utilizaÁ„o do ID3
+	/// Classe que exemplifica a utiliza√ß√£o do ID3
 	/// </summary>
 	class ID3Sample
 	{
@@ -513,19 +513,19 @@ namespace ExemploID3
 			column = result.Columns.Add("result");
 			column.DataType = typeof(bool);
 
-			result.Rows.Add(new object[] {"sol", "alta", "alta", "nao", false}); //D1 sol alta alta n„o N
+			result.Rows.Add(new object[] {"sol", "alta", "alta", "nao", false}); //D1 sol alta alta n√£o N
 			result.Rows.Add(new object[] {"sol", "alta", "alta", "sim", false}); //D2 sol alta alta sim N
-			result.Rows.Add(new object[] {"nublado", "alta", "alta", "nao", true}); //D3 nebulado alta alta n„o P
-			result.Rows.Add(new object[] {"chuva", "alta", "alta", "nao", true}); //D4 chuva alta alta n„o P
-			result.Rows.Add(new object[] {"chuva", "baixa", "normal", "nao", true}); //D5 chuva baixa normal n„o P
+			result.Rows.Add(new object[] {"nublado", "alta", "alta", "nao", true}); //D3 nebulado alta alta n√£o P
+			result.Rows.Add(new object[] {"chuva", "alta", "alta", "nao", true}); //D4 chuva alta alta n√£o P
+			result.Rows.Add(new object[] {"chuva", "baixa", "normal", "nao", true}); //D5 chuva baixa normal n√£o P
 			result.Rows.Add(new object[] {"chuva", "baixa", "normal", "sim", false}); //D6 chuva baixa normal sim N
 			result.Rows.Add(new object[] {"nublado", "baixa", "normal", "sim", true}); //D7 nebulado baixa normal sim P
-			result.Rows.Add(new object[] {"sol", "suave", "alta", "nao", false}); //D8 sol suave alta n„o N
-			result.Rows.Add(new object[] {"sol", "baixa", "normal", "nao", true}); //D9 sol baixa normal n„o P
-			result.Rows.Add(new object[] {"chuva", "suave", "normal", "nao", true}); //D10 chuva suave normal n„o P
+			result.Rows.Add(new object[] {"sol", "suave", "alta", "nao", false}); //D8 sol suave alta n√£o N
+			result.Rows.Add(new object[] {"sol", "baixa", "normal", "nao", true}); //D9 sol baixa normal n√£o P
+			result.Rows.Add(new object[] {"chuva", "suave", "normal", "nao", true}); //D10 chuva suave normal n√£o P
 			result.Rows.Add(new object[] {"sol", "suave", "normal", "nao", true}); //D11 sol suave normal sim P
 			result.Rows.Add(new object[] {"nublado", "suave", "alta", "sim", true}); //D12 nebulado suave alta sim P
-			result.Rows.Add(new object[] {"nublado", "alta", "normal", "nao", true}); //D13 nebulado alta normal n„o P
+			result.Rows.Add(new object[] {"nublado", "alta", "normal", "nao", true}); //D13 nebulado alta normal n√£o P
 			result.Rows.Add(new object[] {"chuva", "suave", "alta", "sim", false}); //D14 chuva suave alta sim N
 
 			return result;
